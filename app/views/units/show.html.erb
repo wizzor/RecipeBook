@@ -1,0 +1,23 @@
+<p>
+  <b>Id:</b>
+  <%=h @unit.id %>
+</p>
+
+<p>
+  <b>Longname:</b>
+  <%=h @unit.longname %>
+</p>
+
+<p>
+  <b>Shortname:</b>
+  <%=h @unit.shortname %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%=h @unit.type %>
+</p>
+
+
+<%= link_to 'Edit', edit_unit_path(@unit) %> |
+<%= link_to 'Back', units_path %>

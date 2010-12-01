@@ -1,0 +1,52 @@
+<h1>New recipe</h1>
+
+<% form_for(@recipe) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :id %><br />
+    <%= f.text_field :id %>
+  </p>gg
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p> There are <%= @ingredients.length %> ingredients now </p>
+	
+		<% @ingredients.each_with_index do |ingredient, index| %>
+			<p>
+			<% # fields_for "recipe[ingredient_attributes][]" ingredient do |fi| %>
+				<%= @ingredients[index].name %>
+				<%= fi.hidden_field :ingredient_id %> 
+				<%= fi.text_field :recipe_ingredients %></p>
+
+			<% end %> 
+		<% end %> 
+	
+  <% # @ingredients.each do |i| %>
+	<% #= i.name %> 
+  <% #end %>
+	
+<% @ingredients.each_with_index do |ingredient, index| %>
+	<input type="checkbox"
+		name="ingredient_ids[]"
+		id="<%=ingredient.id%>"
+		amount="<%=ingredient.id %>"
+	
+		<%= ingredient.name %>
+			
+		
+		<input id="recipe_ingredients_<%=ingredient.id%>_amount" type="text" size="30" name="recipe_ingredients[][amount]"/>
+		<%= f.hidden_field :ingredient_id %> 
+		<%= f.text_field :amount %></p>
+		
+			<br />
+	<% end %>
+		
+
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', recipes_path %>

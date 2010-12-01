@@ -1,0 +1,26 @@
+<h1>Listing amounts</h1>
+
+<table>
+  <tr>
+    <th>Recipe</th>
+    <th>Ingredient</th>
+    <th>Amount</th>
+    <th>Unit</th>
+  </tr>
+
+<% @amounts.each do |amount| %>
+  <tr>
+    <td><%=h amount.recipe_id %></td>
+    <td><%=h amount.ingredient_id %></td>
+    <td><%=h amount.amount %></td>
+    <td><%=h amount.unit_id %></td>
+    <td><%= link_to 'Show', amount %></td>
+    <td><%= link_to 'Edit', edit_amount_path(amount) %></td>
+    <td><%= link_to 'Destroy', amount, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New amount', new_amount_path %>

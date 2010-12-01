@@ -1,0 +1,28 @@
+<h1>Editing unit</h1>
+
+<% form_for(@unit) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :id %><br />
+    <%= f.text_field :id %>
+  </p>
+  <p>
+    <%= f.label :longname %><br />
+    <%= f.text_field :longname %>
+  </p>
+  <p>
+    <%= f.label :shortname %><br />
+    <%= f.text_field :shortname %>
+  </p>
+  <p>
+    <%= f.label :type %><br />
+    <%= f.text_field :type %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @unit %> |
+<%= link_to 'Back', units_path %>

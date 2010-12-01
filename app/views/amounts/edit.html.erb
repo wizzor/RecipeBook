@@ -1,0 +1,28 @@
+<h1>Editing amount</h1>
+
+<% form_for(@amount) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :recipe_id %><br />
+    <%= f.text_field :recipe_id %>
+  </p>
+  <p>
+    <%= f.label :ingredient_id %><br />
+    <%= f.text_field :ingredient_id %>
+  </p>
+  <p>
+    <%= f.label :amount %><br />
+    <%= f.text_field :amount %>
+  </p>
+  <p>
+    <%= f.label :unit_id %><br />
+    <%= f.text_field :unit_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @amount %> |
+<%= link_to 'Back', amounts_path %>
