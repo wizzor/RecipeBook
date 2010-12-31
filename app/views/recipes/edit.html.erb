@@ -4,13 +4,16 @@
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :id %><br />
-    <%= f.text_field :id %>
-  </p>
-  <p>
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </p>
+<ul>
+<% @recipe.recipe_ingredients.each do |ri| %>
+  
+  <%i=Ingredient.find(ri.ingredient_id)%>
+  <li><%= i.name %> <%= ri.value %></li>
+<% end %>
+</ul>
 
   <p>
     <%= f.submit 'Update' %>

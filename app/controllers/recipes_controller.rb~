@@ -26,7 +26,8 @@ class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
     @ingredients = Ingredient.find(:all)
-    @new_ingredient = Recipe.ingredients.build
+    @recipe.ingredients.build
+    #@new_ingredient = Recipe.ingredients.build
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @recipe }
@@ -42,7 +43,7 @@ class RecipesController < ApplicationController
   # POST /recipes.xml
   def create
     @recipe = Recipe.new(params[:recipe])
-
+    
     respond_to do |format|
       if @recipe.save
         flash[:notice] = 'Recipe was successfully created.'

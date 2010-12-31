@@ -1,22 +1,20 @@
-<p>
-  <b>Id:</b>
-  <%=h @recipe.id %>
-</p>
+
 
 <p>
   <b>Name:</b>
-  <%=h @recipe.name %>
+  <%=h @recipe.name   %>
 </p>
 
 <p>
-  <b>People:</b>
-<%unless @recipe.recipe_ingredients.length == 0 %>
-  <% @recipe.recipe_ingredients.ingredients.each do |i| %>
-  	<%= i.name %>
-  <% end %>
-<% end %>
-</p>
+Ingredients:
 
+<ul>
+<% @recipe.recipe_ingredients.each do |ri| %>
+  
+  <%i=Ingredient.find(ri.ingredient_id)%>
+  <li><%= i.name %> <%= ri.value %></li>
+<% end %>
+</ul>
 
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back', recipes_path %>

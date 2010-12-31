@@ -1,11 +1,32 @@
 class Recipe < ActiveRecord::Base
-  has_many :recipeexi_ingredients, :dependent => :destroy
-  has_many :foods, :through => :recipe_ingredients, :source => :ingredients
+  has_many :recipe_ingredients, :dependent => :destroy
+  has_many :ingredients, :through => :recipe_ingredients
+  accepts_nested_attributes_for :recipe_ingredients, :allow_destroy => true
+  accepts_nested_attributes_for :ingredients, :allow_destroy => false
+
+
+
+  def ingredient_attributes=(ingredient_attributes)
+    ingredient_attributes.each do |a|
+      
+      #r=RecipeIngredient.new(:ingredient_id => i.id, :value => a[:value], :recipe_id => self.id)
+      i=ingredients.build(:name => a[:name], :value =>a[:value])
+      i.save
+      ri=RecipeIngredient.find(:last, :conditions => {:ingredient_id => i.id})
+      #ri.value=a[value]
+     #ri.save
+
+    end
+  end
   
-  attr_accessor :amount
-  attr_accessor :ingredients
-  attr_accessor :ingredient_id
-  attr_accessor :recipe_id
+  def value=(value)
+    ri=RecipeIngredient.new(:value => value)
+    ri.save
+  end
+  attr_accessor :value
+  #attr_accessor :ingredients
+  #attr_accessor :ingredient_id
+  #attr_accessor :recipe_id
 
 
 

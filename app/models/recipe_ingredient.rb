@@ -1,4 +1,6 @@
 class RecipeIngredient < ActiveRecord::Base
-  has_many :recipes
-  has_many :ingredients
+  belongs_to :recipe
+  belongs_to :ingredient
+  validates_presence_of :value
+
 end

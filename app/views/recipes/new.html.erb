@@ -4,44 +4,21 @@
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :id %><br />
-    <%= f.text_field :id %>
-  </p>gg
-  <p>
-    <%= f.label :name %><br />
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </p>
   <p> There are <%= @ingredients.length %> ingredients now </p>
-	
-		<% @ingredients.each_with_index do |ingredient, index| %>
-			<p>
-			<% # fields_for "recipe[ingredient_attributes][]" ingredient do |fi| %>
-				<%= @ingredients[index].name %>
-				<%= fi.hidden_field :ingredient_id %> 
-				<%= fi.text_field :recipe_ingredients %></p>
+asdasd
+    <% for ingredient in @ingredients %>
+      <% fields_for "recipe[ingredient_attributes][]", ingredient do |i_form| %>
+       <p>
+        <%#= i_form.hidden_field :id %>
+        <%= i_form.text_field :name %>
+        <%= i_form.text_field :value %></p>
+      <% end #fields_for %>
+   <% end #for %>
 
-			<% end %> 
-		<% end %> 
-	
-  <% # @ingredients.each do |i| %>
-	<% #= i.name %> 
-  <% #end %>
-	
-<% @ingredients.each_with_index do |ingredient, index| %>
-	<input type="checkbox"
-		name="ingredient_ids[]"
-		id="<%=ingredient.id%>"
-		amount="<%=ingredient.id %>"
-	
-		<%= ingredient.name %>
-			
-		
-		<input id="recipe_ingredients_<%=ingredient.id%>_amount" type="text" size="30" name="recipe_ingredients[][amount]"/>
-		<%= f.hidden_field :ingredient_id %> 
-		<%= f.text_field :amount %></p>
-		
-			<br />
-	<% end %>
+
 		
 
   <p>
