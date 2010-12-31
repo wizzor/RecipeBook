@@ -8,7 +8,7 @@
     <%= f.text_field :name %>
   </p>
 <ul>
-<% @recipe.recipe_ingredients.each do |ri| %>
+<% @recipe.ingredients.each do |ri| %>
   
   <%i=Ingredient.find(ri.ingredient_id)%>
   <li><%= i.name %> <%= ri.value %></li>
