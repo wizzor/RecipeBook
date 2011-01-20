@@ -9,6 +9,9 @@ Ingredients may have an amount specified, which is saved to the join table.
 
 Recipebook is built upon Bort, a Rails application skeleton.
 
+h2. License
+Recipebook is licensed under "GPLv3.":http://www.gnu.org/licenses/gpl-3.0.html
+
 h2. Plugins Installed
 
 Bort comes with a few commonly used plugins installed and already setup.
