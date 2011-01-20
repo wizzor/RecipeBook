@@ -1,26 +1,20 @@
-!http://clients.fudgestudios.com/chester.jpg!
 
-h1. Bort
 
-Bort is a base Rails 2.2 application that makes creating new projects easier and faster. Bort is developed and maintained by "Fudge Studios":http://www.fudgestudios.com, "Jim Neath":http://jimneath.org and "Matt Hall":http://matthall.wordpress.com
+h1. Recipebook
 
-If you have any suggestions for improvements then feel free to leave a request on "User Voice":http://bort.uservoice.com
+Recipebook is a recipe management application built as a Ruby on Rails excercise project.
+The goal is to build a system which allows building of recipes of existing ingredients or larger recipes by using pre-existing recipes as components.
+For example a chicken pizza has two components: the pizza base (basically bread dough) a tomato sauce (and that really requires a good recipe) as well as a number of ingredients, like chicken meat.
+Ingredients may have an amount specified, which is saved to the join table.
 
-h2. Install
-
-* Download and unzip Bort
-* Edit the database.yml and the settings.yml files
-* Changed the default password in the bort migration
-* Edit the REST_AUTH_SITE_KEY in each of the environment files
-* Rake db:migrate
-* Have a brew and celebrate
+Recipebook is built upon Bort, a Rails application skeleton.
 
 h2. Plugins Installed
 
 Bort comes with a few commonly used plugins installed and already setup.
 
 h3. RESTful Authentication
-
+ (Not in use as of now, to make development of other features easier)
 RESTful Authentication is already setup. The routes are setup, along with the mailers and observers.
 Forgotten password comes setup, so you don't have to mess around setting it up with every project.
 
