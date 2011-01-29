@@ -7,15 +7,9 @@
     <%= f.label :name %>
     <%= f.text_field :name %>
   </p>
-  <p> There are <%= @ingredients.length %> ingredients now </p>
+  <p> There are <#%= @ingredients.length %> ingredients now </p>
 
-    <% for ingredient in @ingredients %>
-      <% fields_for "recipe[ingredient_attributes][]", ingredient do |i_form| %>
-       <p>
-        <%= i_form.label ingredient.name %>
-        <%= i_form.text_field :value %></p>
-      <% end #fields_for %>
-   <% end #for %>
+    <%= render "ingredients", :f => f %>
 
 
 		

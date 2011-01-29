@@ -4,7 +4,7 @@ class Ingredient < ActiveRecord::Base
   accepts_nested_attributes_for :recipe_ingredients, :allow_destroy => true
   # Probably would be wise to have weight/dimensions ratio
   attr_accessor :value
-  #attr_accessor :recipes
-  #attr_accessor :ingredient_id
-  #attr_accessor :recipe_id
+	
+
+def kookoo
 end

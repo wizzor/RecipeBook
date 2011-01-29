@@ -3,7 +3,6 @@ class RecipesController < ApplicationController
   # GET /recipes.xml
   def index
     @recipes = Recipe.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @recipes }
@@ -25,9 +24,13 @@ class RecipesController < ApplicationController
   # GET /recipes/new.xml
   def new
     @recipe = Recipe.new
-    @ingredients = Ingredient.find(:all)
-    @recipe.ingredients.build
-    @recipe.recipe_ingredients.build
+    3.times do
+			@recipe.recipe_ingredients.build.build_ingredient
+		end
+
+    #@ingredients = Ingredient.find(:all)
+    #@recipe.ingredients.build
+    #@recipe.recipe_ingredients.build
     #@new_ingredient = Recipe.ingredients.build
     respond_to do |format|
       format.html # new.html.erb
